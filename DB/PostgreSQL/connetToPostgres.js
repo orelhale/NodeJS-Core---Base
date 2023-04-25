@@ -10,17 +10,15 @@ async function queryToPostgres(query) {
       password: process.env.PostgresPassword,
       port: parseInt(process.env.PostgresPort)
    });
-
-   try {
-      await client.connect();
-      console.log("Query is successed");
-      let result = await client.query(query)
-      return result;
-   } catch (err) {
-      console.log("Error:", err);
-   } finally {
-      client.end();
-   }
+   
+   return client.connect()
+      .then(() => client.query(query))
+      .then((data) => {
+         console.log(`success: ${logSuccess}`);
+         return data
+      })
+      .catch((err) => console.log("Error: in adminQueryToPostgres = ", err))
+      .finally(() => client.end())
 }
 
 

@@ -2,7 +2,6 @@ let express = require("express")
 require("dotenv").config()
 
 let MainRoutes = require("./routes/MainRoutes")
-const queryToPostgres = require("./DB/PostgreSQL/connetToPostgres")
 
 let server = express()
 server.use(express.json())
