@@ -48,9 +48,4 @@ router.post("/findById", async (req, res) => {
 })
 
 
-router.all("*", (req, res) => {
-   res.status(400).send("Path does not exist")
-})
-
-
 module.exports = router

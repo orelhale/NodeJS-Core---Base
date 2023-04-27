@@ -15,6 +15,7 @@ function MainRoutes(server) {
    server.use("/system", SystemRoutes)
    server.use("/tempMongo", TempMongoDBRoutes)
    server.use("/tempPostres", TempPostreSQLRoutes)
+   server.use("*", (req, res) => res.status(404).send("Path does not exist"))
 
 }
 

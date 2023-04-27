@@ -1,6 +1,6 @@
 
 let { Router } = require("express")
-let  router = Router()
+let router = Router()
 
 
 
@@ -16,11 +16,6 @@ router.post("/login", (req, res) => {
 
 router.post("/register", (req, res) => {
    res.status(200).send("register")
-})
-
-
-router.all("*", (req, res) => {
-   res.status(404).send("Path does not exist")
 })
 
 
